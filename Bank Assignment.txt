@@ -1,0 +1,287 @@
+Account No will be made primary key
+
+//2
+db.Bank.createIndex( { "accountNo": 1 }, { unique: true } )
+
+/* 1 */
+{
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 2,
+    "numIndexesAfter" : 2,
+    "note" : "all indexes already exist",
+    "ok" : 1.0
+}
+
+//3
+db.Bank.find({"customers.loanAmount" : {$gt : 0}},{"customers.customerName" : 1, "customers.city" :1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cdb6049118d66ca61f278"),
+    "customers" : {
+        "customerName" : "Aayush",
+        "city" : "Chennai"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cde3549118d66ca61f279"),
+    "customers" : {
+        "customerName" : "Ram",
+        "city" : "Pune"
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5b2cde3c49118d66ca61f27a"),
+    "customers" : {
+        "customerName" : "Ramesh",
+        "city" : "Hyderabad"
+    }
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5b2cde4449118d66ca61f27b"),
+    "customers" : {
+        "customerName" : "Sam",
+        "city" : "Chennai"
+    }
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5b2cde4449118d66ca61f27c"),
+    "customers" : {
+        "customerName" : "Rajesh",
+        "city" : "Pune"
+    }
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5b2cde5f49118d66ca61f27d"),
+    "customers" : {
+        "customerName" : "Bhuvan",
+        "city" : "Hyderabad"
+    }
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5b2cf41d49118d66ca61f27e"),
+    "customers" : {
+        "customerName" : "Bhavesh",
+        "city" : "Pune"
+    }
+}
+
+//4
+db.Bank.find({"customers.city" : "Chennai","customers.loanAmount": {$gt : 0}},{"customers.customerName" : 1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cdb6049118d66ca61f278"),
+    "customers" : {
+        "customerName" : "Aayush"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cde4449118d66ca61f27b"),
+    "customers" : {
+        "customerName" : "Sam"
+    }
+}
+
+//5
+db.Bank.find({},{"branch.branchName" : 1, "branch.branchCity" : 1, "branch.assets" : 1}).sort({"branch.assets" : -1}).limit(1)
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cde3549118d66ca61f279"),
+    "branch" : {
+        "branchName" : "Shanthi Branch",
+        "branchCity" : "Pune",
+        "assets" : 700000.0
+    }
+}
+
+//6
+db.Bank.find({"branch.branchCity" : "Pune", "customers.loanAmount" : {$gt : 0 }},{"customers.customerName" : 1, "customers.cities" : 1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cde3549118d66ca61f279"),
+    "customers" : {
+        "customerName" : "Ram"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cde4449118d66ca61f27c"),
+    "customers" : {
+        "customerName" : "Rajesh"
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5b2cf41d49118d66ca61f27e"),
+    "customers" : {
+        "customerName" : "Bhavesh"
+    }
+}
+
+//7 
+db.Bank.find({$and :[ {"balance":{$gt : 700 }},{"balance":{$lt : 900 }}]}).count()
+
+1
+
+//8
+db.Bank.find({"branch.branchCity" : "Pune", "customers.depositAmount" : {$gt : 0 },"customers.loanAmount": {$gt : 0 }},
+{ "customers.customerName" : 1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cde3549118d66ca61f279"),
+    "customers" : {
+        "customerName" : "Ram"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cde4449118d66ca61f27c"),
+    "customers" : {
+        "customerName" : "Rajesh"
+    }
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5b2cf41d49118d66ca61f27e"),
+    "customers" : {
+        "customerName" : "Bhavesh"
+    }
+}
+
+//9
+db.Bank.find({$expr:{$gt:["$customers.loanAmount","$balance"]}},{ "customers.customerName" : 1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cde5f49118d66ca61f27d"),
+    "customers" : {
+        "customerName" : "Bhuvan"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cf41d49118d66ca61f27e"),
+    "customers" : {
+        "customerName" : "Bhavesh"
+    }
+}
+
+//10
+db.Bank.find( {"customers.street" : {$regex : "Hill$"}} ,{"customers.customerName" : 1 })
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cde3549118d66ca61f279"),
+    "customers" : {
+        "customerName" : "Ram"
+    }
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5b2cde3c49118d66ca61f27a"),
+    "customers" : {
+        "customerName" : "Ramesh"
+    }
+}
+
+//11
+db.Bank.find({"customers.loanAmount" : 0, "customers.city" : "Pune"},{"customers.customerName" : 1})
+
+/* 1 */
+{
+    "_id" : ObjectId("5b2cf5a449118d66ca61f27f"),
+    "customers" : {
+        "customerName" : "Rupesh"
+    }
+}
+
+//12
+
+
+//13
+db.Bank.aggregate([{$group : {_id : "$branch.branchName",average : {$avg : "$balance"}}},{$sort :{"average" : -1}},{$limit : 1}])
+
+/* 1 */
+{
+    "_id" : "Paradise Branch",
+    "average" : 600000.0
+}
+      
+//14
+db.Bank.aggregate([{ $group: { _id: "$branch.branchName", count: { $sum: 1}}}])
+
+/* 1 */
+{
+    "_id" : "Marina Branch",
+    "count" : 1.0
+}
+
+/* 2 */
+{
+    "_id" : "Laxmi Branch",
+    "count" : 1.0
+}
+
+/* 3 */
+{
+    "_id" : "Paradise Branch",
+    "count" : 1.0
+}
+
+/* 4 */
+{
+    "_id" : "Rani Branch",
+    "count" : 1.0
+}
+
+/* 5 */
+{
+    "_id" : "Shanthi Branch",
+    "count" : 1.0
+}
+
+/* 6 */
+{
+    "_id" : "Santhosh Branch",
+    "count" : 1.0
+}
+
+/* 7 */
+{
+    "_id" : "Adyar Branch",
+    "count" : 1.0
+}
+
+/* 8 */
+{
+    "_id" : "Porur Branch",
+    "count" : 1.0
+}
+
+//15
+db.Bank.update({ "customers.customerName": "Ram" },{$inc: {balance : 20000}})
+Updated 1 existing record(s) in 7ms
