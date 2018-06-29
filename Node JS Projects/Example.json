@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Samsung Galaxy NotePlus",
+        "cost" : 15000,
+        "avail" : "In Stock"
+    },
+    {
+        "name" : "Apple iPhone X",
+        "cost" : 45000,
+        "avail" : "In Stock"
+    },
+    {
+        "name" : "Vivo V5",
+        "cost" : 16600,
+        "avail" : "On Back Order"
+    },
+    {
+        "name" : "Moto G5 Plus",
+        "cost" : 17000,
+        "avail" : "In Stock"
+    },
+    {
+        "name" : "One Plus 6",
+        "cost" : 1000,
+        "avail" : "On Back Order"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "length" : 10,
+        "breadth" : 20
+    },
+    {
+        "length" : 15,
+        "breadth" : 10
+    },
+    {
+        "length" : 8,
+        "breadth" : 5
+    },
+    {
+        "length" : 7,
+        "breadth" : 9
+    },
+    {
+        "length" :20,
+        "breadth" : 5
+    }
+]
