@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>
+			SwitchCaseExample
+		</title>
+	</head>
+	<body>
+		<script>
+			var a = parseInt(prompt("Enter number 1"));
+			var b = parseInt(prompt("Enter number 2"));
+			var result;
+			var choice =  parseInt(prompt("Enter choice"));
+			switch(choice)
+			{
+				case 1: 
+					result = a+b;
+					document.writeln("Result"+(result));
+					break;
+				case 2: 
+					result = a-b;
+					document.writeln("Result"+result);
+					break;
+				case 3: 
+					result = a*b;
+					document.writeln("Result"+result);
+					break;
+				case 4: 
+					result = a/b;
+					document.writeln("Result"+result);
+					break;
+				default :
+					document.writeln("Invalid"); 
+
+			}
+		</script>
+	</body>
+</html>

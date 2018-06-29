@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title></title>
+		<script src = "Complex.js"></script>
+	</head>
+		<body>
+		<script>
+			var real1 = parseFloat(prompt("Enter the real part"));
+			var imaginary1 = parseFloat(prompt("Enter the imaginary part i"));
+			var real2 = parseFloat(prompt("Enter the real part"));
+			var imaginary2 = parseFloat(prompt("Enter the imaginary part i"));
+			var c1 = new Complex(real1,imaginary1);
+			var c2 = new Complex(real2,imaginary2);
+	   		var c3 = c1.addComplex(c2)
+			alert("result = " + c3.real +  " +i "  + c3.imaginary);
+		</script>
+	</body>
+</html>

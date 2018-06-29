@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>
+			NestedIfElse
+		</title>
+	</head>
+	<body>
+	<script>
+		var age = parseInt(prompt("Enter the age"));
+		if(age >= 18)
+		{
+			document.writeln("Above 18");
+			var answer=prompt("Do you have voter id card press y for yes");
+			if(answer =='y'||answer=='Y')
+			{
+				document.writeln("Eligible");
+			}
+		}
+		else
+		{
+			document.writeln("Not applicable as the age is smaller than 18");
+		}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>
+			SumOfDigits
+		</title>
+	</head>
+	<body>
+	<script>
+		var number;
+		var sum = 0;
+		number = parseInt(prompt("Enter Number"));
+		while(number!=0)
+		{
+			var temp = number%10;
+			sum=sum+temp;
+			number= parseInt(number/10);
+		}
+		document.writeln("Sum "+sum);
+	</script>
+	</body>
+</html>

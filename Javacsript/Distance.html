@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>
+			DistanceBetweenTwoPoints
+	</title>
+		<script src="Distance.js"></script>
+	</head>
+	<body>
+		<script>
+			var x1 = parseFloat(prompt("Enter the x1"));
+			var y1 = parseFloat(prompt("Enter the y1"));
+			var x2 = parseFloat(prompt("Enter the x2"));
+			var y2 = parseFloat(prompt("Enter the y2"));
+			var d1 = new Distance(x1,y1);
+			var d2 = new Distance(x2,y2);
+	   		var d3 = d1.calculateDistance(d2)
+			alert("Distance = " + d3);
+		</script>
+	</body>
+</html>

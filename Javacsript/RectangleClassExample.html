@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>
+			ClassExample
+	</title>
+		<script src="Rectangle.js"></script>
+	</head>
+	<body>
+		<script >
+			var length;
+			var breadth;
+			length = parseInt(prompt("Enter the length"));
+			breadth = parseInt(prompt("Enter the braedth"));
+			var rectangle = new Rectangle(length,breadth);
+			document.writeln("Area "+rectangle.calculateArea());
+			document.writeln("Perimeter "+rectangle.calculatePerimeter());
+		</script>
+	</body>
+</html>
