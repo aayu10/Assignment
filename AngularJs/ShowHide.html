@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html ng-App = "">
+	<head>
+		<title>
+			Listing 2-4
+		</title>
+		<script src = "js/angular.min.js"></script>
+	</head>
+	<body ng-init = "visible = true; invisible = false">
+		<p ng-show = "true">Paragragh 1, can you see me </p>
+		<p ng-show = "false">Paragragh 2, can you see me </p>
+		<p ng-show = "1==1">Paragragh 3, can you see me </p>
+		<p ng-show = "1==2">Paragragh 4, can you see me </p>
+		<p ng-show = visible>Paragragh 5, can you see me </p>
+		<p ng-show = invisible>Paragragh 6, can you see me </p>
+	</body>
+</html>

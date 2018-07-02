@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			First Form
+		</title>
+		<script src = "js/angular.min.js"></script>
+	</head>
+	<body ng-App = "">
+		<input type="number" ng-model="amount"><br>
+		value : {{ amount | currency : "&#83771;" }}
+	</body>
+</html>

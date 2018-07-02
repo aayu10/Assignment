@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			First Form
+		</title>
+		<script src = "js/angular.min.js"></script>
+	</head>
+	<body ng-App = "" >
+		<input type="date" ng-model="joindate"><br>
+		value : {{ joindate | date : "y.MM.dd" }}
+	</body>
+</html>
