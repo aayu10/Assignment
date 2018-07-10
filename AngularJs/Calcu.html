@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator Form</title>
+	<script type="text/javascript" src="D:\Angular\js\angular.min.js"></script>
+	<style>
+        .calculatorOutline{
+            margin: 20px auto;
+            padding: 10px;
+            border: black solid 2px;
+            text-align: center;
+            width: 450px;
+            height: 625px;
+            background: lightblue;
+        }
+        .numfield{
+            margin: 5px auto;
+            width: 390px;
+            height: 60px;
+            border: black inset 1px;
+            font-family: "arial", serif;
+            font-size: 50px;
+            background: beige;
+        }
+        
+        .btn {
+            margin: 5px;
+            width: 98px;
+            height: 66px;
+            font-family: "arial", serif;
+            font-size: 50px;
+            border: black inset 1px;
+            background: lightgray;
+        }
+        .btn1 {
+            margin: 5px;
+            width: 98px;
+            height: 66px;
+            font-family: "arial", white;
+            font-size: 50px;
+            border: black inset 1px;
+            background: #20C5F7;
+        }
+        hr {
+            border: none;
+            width: 290px;
+            height: 1px;
+            background-color: black;
+        }
+    </style>
+
+	<script>
+	var app=angular.module("mycal",[]);
+	app.controller("calctrl",function($scope)
+	{
+
+	$scope.display="";
+	$scope.input=function(val)
+	{
+		$scope.flag=false;
+		$scope.display=($scope.display+val).toString();
+	};
+	$scope.op=function(op)
+	{
+		$scope.flag=true;
+		$scope.display=$scope.display+op;
+	};
+	$scope.clear=function()
+	{
+		$scope.display=0;
+	};	
+	$scope.e=function(e)
+	{
+		$scope.display=eval($scope.display);
+	};
+	$scope.bs=function(bs)
+	{
+		var str=$scope.display;
+		$scope.display=str.substring(0,str.length-1);
+	};
+
+	})	
+	</script>
+</head>
+<body ng-App="mycal" ng-controller="calctrl" ng-init="display=0">
+	<center>
+<div class="calculatorOutline">
+<div>
+	<div><center><input type="text" ng-model="display" style="text-align:center"class="numfield" name=display size="25" ng-disabled="true"/> 
+	</center></div>
+	<div>
+
+		<p>
+			<input type="button" name="+" class="btn" ng-click="op('+')" ng-disabled="flag" value="+">
+			<input type="button" name="-" class="btn" ng-click="op('-')" ng-disabled="flag" value="-">
+			<input type="button" name="*" class="btn" ng-click="op('*')" ng-disabled="flag"  value="*">
+			<input type="button" name="/" class="btn" ng-click="op('/')" ng-disabled="flag"  value="/">
+		</p>
+	</div>
+	<div>
+		<p>
+			<input type="button" name="7" class="btn" ng-click="input('7')" value=7>
+			<input type="button" name="8" class="btn" ng-click="input('8')" value=8>
+			<input type="button" name="9" class="btn" ng-click="input('9')" value=9>
+		</p>
+		<p>
+			<input type="button" name="4" class="btn" ng-click="input('4')" value=4>
+			<input type="button" name="5" class="btn" ng-click="input('5')" value=5>
+			<input type="button" name="6" class="btn" ng-click="input('6')" value=6>
+		</p>
+		<p>
+			<input type="button" name="1" class="btn" ng-click="input('1')" value=1>
+			<input type="button" name="2" class="btn" ng-click="input('2')" value=2>
+			<input type="button" name="3" class="btn" ng-click="input('3')" value=3>
+		</p>
+		<p>
+			
+			<input type="button" name="bs" class="btn" ng-click="bs()" value="?" />
+			<input type="button" name="C" class="btn" ng-click="clear()" value="clr">
+			<input type="button" name="0" class="btn" ng-click="input('0')" value=0>
+			<input type="button" name="." class="btn" ng-click="input('.')" value=".">
+			
+
+		</p>
+		<p>
+			<input type="button" name="=" class="btn1" ng-click="e()" value="=">
+			
+		</p>
+	</div>
+</div>
+</div>
+</body>
+</html>

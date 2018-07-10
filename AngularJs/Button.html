@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script src = "js/angular.min.js"></script>
+		<script>
+
+			var app = angular.module("myApp",[]);
+			app.controller("myCtrl", function($scope){
+				$scope.phones = function(){
+					$scope.phone =! $scope.phone;
+				}
+			});
+		</script>
+	</head>
+	<body ng-App = "myApp" ng-controller = "myCtrl" ng-init = "phone =false">
+		<input type="button" value = "find" ng-click = "phones()">
+		<div ng-show = "phone">
+			<h3>Phones</h3>
+			<p>apple <br>
+			samsung <br>
+			blackberry </p>	
+		</div>
+		
+	</body>
+	</html>
+
+
+
+
+
+
+

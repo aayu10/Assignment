@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            AngularJS Sevice Example
+        </title>
+        <script src="js/angular.min.js"></script>
+        <script type="text/javascript">
+        var app = angular.module('angularCustomApp' , []);
+        app.controller('customCtrl', function($scope, CalcService){
+            $scope.sqrt = function(){
+                return CalcService.sqrt($scope.value);
+            }
+        });
+        app.service('CalcService', function(){
+            this.sqrt = function(a){
+                return Math.sqrt(a);
+            }  
+        });
+        </script>
+    </head>
+    <body ng-app="angularCustomApp" ng-controller="customCtrl">
+        Enter a value : <input type="number" ng-model = "value">
+        <p>Square Root : {{ sqrt() }}</p>
+    </body>
+</html>

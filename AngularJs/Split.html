@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Split
+        </title>
+        <script src ="D:\angular\js\angular.min.js"></script>
+        <script>
+            var app = angular.module("splitApp",[]);
+                app.filter("splitCtrl",function(){
+                return function(num){
+                    var a = num.split("-");
+                    var result= a.join(" ")
+                    
+                    return result;
+                }
+            });
+        </script>
+    </head>
+    <body ng-app = "splitApp">
+        Enter  Number : <input type="text" ng-model="num"><br>
+            {{ num | splitCtrl }}
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            AngularJS Sevice Example
+        </title>
+        <script src="js/angular.min.js"></script>
+        <script type="text/javascript">
+        var app = angular.module('tempratureApp' , []);
+        app.controller('tempratureCtrl', function($scope, CalcTemp){
+            $scope.convertToF = function(){
+                return CalcTemp.convertToF($scope.value1);
+            }
+            $scope.convertToC = function(){
+                return CalcTemp.convertToC($scope.value2);
+            }
+        });
+        app.service('CalcTemp', function(){
+            this.convertToF = function(a){
+                return (a * 1.8) + 32;
+            }
+            this.convertToC = function(a){
+                return (a - 32) / 1.8;
+            } 
+        });
+        </script>
+    </head>
+    <body ng-app="tempratureApp" ng-controller="tempratureCtrl">
+        Enter Celcius : <input type="number" ng-model = "value1">
+        <p>Farenheit : {{ convertToF() }}</p>
+        Enter Farenheit: <input type="number" ng-model = "value2">
+        <p>Celcius : {{ convertToC() }}</p>
+    </body>
+</html>

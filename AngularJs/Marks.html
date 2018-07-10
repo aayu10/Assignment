@@ -6,7 +6,17 @@
 		<script>
 			var app = angular.module("myApp",[]);
 			app.controller("myCtrl", function($scope){
-				$scope.employee = "[{empId : 'e1001', empName : 'Ram'},{empId : 'e1002', empName : 'Rahul'},{empId : 'e1003', empName : 'Raj'}]"
+
+				$scope.marks = [10, 20, 30, 40, 50];
+
+				$scope.average = function(){
+					var sum = 0;
+					for( var i = 0; i< $scope.marks.length; i++){
+						sum += $scope.marks[i];
+					}
+					var avg = sum/$scope.marks.length;
+					return avg;
+				}
 			});
 		</script>
 	</head>
@@ -14,5 +24,7 @@
 		<div ng-repeat = "mark in marks">
 			{{ mark }}
 		</div>
+
+		Average : {{ average() }}
 	</body>
 </html>

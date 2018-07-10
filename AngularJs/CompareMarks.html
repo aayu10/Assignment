@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src ="D:\angular\js\angular.min.js"></script>
+        <script src="D:\Angular\app2.js"></script>
+    </head>
+    <body>
+        <div ng-app="studentapp" ng-controller = "studentCtrl">
+            <table border="0" >
+                <tr ng-repeat = "student in students">
+                    <td>Name : </td>
+                    <td>{{student.name | uppercase}} </td>
+
+                    <td>Subject :</td>
+                    <td>
+                        <ul>
+                            <li ng-repeat ="subject in student.subjects | orderBy : 'marks'">
+                                {{subject.name + ',  marks :' +subject.marks}}
+                            </li>
+                        </ul>
+                    </td>
+
+                </tr>
+            </table>
+            <p> {{ students.total() }}</p>
+            <p> {{ students.average() | number : 2 }} </p>
+            <p> Greater Average : {{ compare() | number : 2 }} </p>
+        </div>
+    </body>
+</html>

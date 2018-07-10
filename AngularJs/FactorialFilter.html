@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            AngularJs customer filter example
+        </title>
+        <script src ="D:\angular\js\angular.min.js"></script>
+        <script>
+            var app = angular.module("factorialFilter",[]);
+            app.filter("factorial", function(){
+                return function(n){
+                    var fact = 1;
+                    for(i = 1; i<=n;i++){
+                        fact *= i;
+                    }
+                    return fact;
+                };
+            })
+        </script>
+    </head>
+    <body ng-app = "factorialFilter">
+        <p>
+            {{ 5 | factorial }}
+        </p>
+        
+    </body>
+</html>

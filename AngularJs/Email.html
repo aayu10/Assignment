@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script src = "js/angular.min.js"></script>
+		<!-- <script>
+			var app = angular.module("myApp",[]);
+			app.controller("myCtrl", function($scope){
+				
+			});
+		</script> -->
+	</head>
+	<body ng-App = "" >
+		<form name="myForm">
+			<input name="myInput" ng-model="myInput" type="email">
+		</form>
+		<p>The input's valid state is:</p>
+		{{myForm.myInput.$valid}}
+	</body>
+</html>
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calculator
+        </title>
+        <script src="D:\Angular\js\angular.min.js"></script>
+        <script type="text/javascript">
+            var app = angular.module('calculatorApp' , []);
+            app.controller('calculatorCtrl', function($scope, Calculator){
+                $scope.addition = function(){
+            	   $scope.result= Calculator.addition($scope.first, $scope.second);
+                   return Calculator.addition($scope.first, $scope.second);
+                }
+                $scope.subtraction = function(){
+                    $scope.result= Calculator.subtraction($scope.first, $scope.second);
+                    return Calculator.subtraction($scope.first, $scope.second);
+                }
+                $scope.multiplication = function(){
+            	   $scope.result= Calculator.multiplication($scope.first, $scope.second);
+           		   return Calculator.multiplication($scope.first, $scope.second);
+                }
+                $scope.division = function(){
+            	   $scope.result= Calculator.division($scope.first, $scope.second);
+                   return Calculator.division($scope.first, $scope.second);
+                }
+                $scope.clear = function(){
+            	   // $scope.x= Calculator.clear($scope.first, $scope.second, $scope.result);
+            	   $scope.first="";
+            	   $scope.second="";
+            	   $scope.result="";
+            	   return Calculator.clear($scope.first, $scope.second, $scope.result);
+                }
+                 $scope.updateOutput = function(){
+                    return Calculator.updateOutput($scope.first); 
+                };
+            });
+            app.service('Calculator', function(){
+                this.addition = function(a,b){
+                    return a+b;
+                }  
+                this.subtraction= function(a,b){
+                    return a-b;
+                }
+                this.multiplication= function(a,b){
+                    return a*b;
+                }
+                this.division= function(a,b){
+                    return a/b;
+                }
+                // this.clear= function(a,b,c){
+                //     a=""; 
+                //     b="";
+          		    // c=""
+                //     return a, b, c;
+                // }
+                this.updateOutput = function(a) {
+                    if(a == "0"){
+                        a = btn;
+                    }
+                    else{
+                        a += String(a);
+                    }
+                    return a;
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="calculatorApp" ng-controller="calculatorCtrl">
+        <div>
+    	    Enter First Number:<input type="number" ng-model="first"><br>
+    	    Enter Second Number:<input type="number" ng-model="second"><br>
+    	    <input type="button" value="Plus"  ng-click="addition()"><br>
+    	    <input type="button" value="Minus" ng-click="subtraction()"><br>
+            <input type="button" value="Divide" ng-click="division()"><br>
+            <input type="button" value="Multiply"  ng-click="multiplication()"><br>
+            <button type="button" ng-click="updateOutput($index)" ng-repeat="n in [0,1,2,3,4,5,6,7,8,9]">{{ n }}</button>
+            <input type="number" ng-model="result"><br>
+            <input type="button" value="Clear" ng-click="clear()"><br>
+        </div>
+    </body>
+</html>

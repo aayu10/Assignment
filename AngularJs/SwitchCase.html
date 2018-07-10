@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Split
+        </title>
+        <script src ="D:\angular\js\angular.min.js"></script>
+        <script>
+            var app = angular.module("switchCaseApp",[]);
+                app.filter("switchCaseCtrl",function(){
+                return function(num){
+                    var choice = num%10;
+                    var result;
+                    switch(choice){
+                        case 1: result = num+"st"
+                        break;
+                        case 2: result = num+"nd"
+                        break;
+                        case 3: result = num+"rd"
+                        break;
+                        case 4: result = num+"th"
+                        break;
+                        case 5: result = num+"th"
+                        break;
+                        case 6: result = num+"th"
+                        break;
+                        case 7: result = num+"th"
+                        break;
+                        case 8: result = num+"th"
+                        break;
+                        case 9: result = num+"th"
+                        break;
+                        case 0: result = num+"th"
+                        break;
+                        default : result = "Invalid"
+                        break;
+                    }
+                    if(num>10 && num<20){
+                        result = num+"th";
+                    }
+                                
+                    return result;
+                }
+            });
+        </script>
+    </head>
+    <body ng-app = "switchCaseApp">
+        Enter number : <input type="number" ng-model="num"><br>
+        {{ num | switchCaseCtrl }}
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            AngularJS custom Filter Example
+        </title>
+        <script src="js/angular.min.js"></script>
+        <script type="text/javascript">
+        var app = angular.module('orderByApp' , []);
+
+        app.controller('orderbyCtrl', function($scope){
+            $scope.marks = [20, 10, 30, 40, 50];
+        });
+        app.filter('descending', function(){
+            return function(a){
+                var b = a.sort().reverse();
+                return b;
+            };
+        });
+        </script>
+    </head>
+    <body ng-app="orderByApp" ng-controller="orderbyCtrl">
+        
+            <div ng-repeat = "mark in marks | descending">
+                {{mark}}
+                
+            </div>
+        
+    </body>
+</html>

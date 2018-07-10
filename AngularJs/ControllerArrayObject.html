@@ -6,13 +6,14 @@
 		<script>
 			var app = angular.module("myApp",[]);
 			app.controller("myCtrl", function($scope){
-				$scope.employee = "[{empId : 'e1001', empName : 'Ram'},{empId : 'e1002', empName : 'Rahul'},{empId : 'e1003', empName : 'Raj'}]"
+				$scope.employee = [{empId : 'e1001', empName : 'Ram'},{empId : 'e1002', empName : 'Rahul'},{empId : 'e1003', empName : 'Raj'}]
 			});
 		</script>
 	</head>
 	<body ng-App = "myApp" ng-controller = "myCtrl">
-		<div ng-repeat = "mark in marks">
-			{{ mark }}
+		<div ng-repeat = "emp in employee">
+			{{ emp.empId }}
+			{{ emp.empName }}
 		</div>
 	</body>
 </html>
